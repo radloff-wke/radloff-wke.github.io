@@ -144,7 +144,7 @@
       align-items: center; justify-content: center;
       margin: 0 auto 16px;
     }
-    .feature-icon i { font-size: 26px; color: var(--g-med); }
+    .feature-icon i { font-size: 26px; color: var(--p-med); }
 
     /* ── PHOTO STRIP ── */
     .photo-strip {
@@ -412,7 +412,9 @@
     <h2 style="text-align:center;margin-bottom:28px;">Our Work in Action</h2>
     <div class="photo-strip">
       <div class="ph-photo"><img src="nfz_fete.png" alt="Photo from fete" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
-      <div class="ph-photo"><i class="ti ti-camera"></i><span>Your photo</span></div>
+      <div class="service-card-img" style="padding:0;border:none;">
+  <img src="spencerdelivering.png" alt="Home page photo 2" style="width:120%;height:120%;object-fit:cover;border-radius:12px;">
+</div>
       <div class="ph-photo"><i class="ti ti-camera"></i><span>Your photo</span></div>
     </div>
   </section>
@@ -515,10 +517,9 @@
   <!-- Mission -->
   <section>
     <div class="split">
-      <div class="ph-photo">
-        <i class="ti ti-photo"></i>
-        <span>A nature or backyard photo</span>
-      </div>
+      <div class="service-card-img" style="padding:0;border:none;">
+  <img src="bunnybucket.png" alt=" Nature Photo" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+</div>
       <div>
         <span class="tag">Why Eco-Friendly?</span>
         <h2>We care about the environment as much as we care about mosquitoes</h2>
@@ -808,9 +809,19 @@
             <span style="font-weight:800;font-size:15px;">Service area</span>
           </div>
           <p style="font-size:13px;">We serve select neighborhoods in Washington DC on foot or by bike. Monthly service requires you to be in our zone — but the DIY Kit ships anywhere!</p>
-          <div class="ph-map">
-            <i class="ti ti-map" style="font-size:24px;"></i>
-            <span>Add a map of your service area here</span>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:10px;">
+            <div>
+              <p style="font-size:13px;font-weight:800;color:var(--g-dark);margin-bottom:6px;">Zone 1</p>
+              <img src="zone1.png" alt="Zone 1" style="width:100%;border-radius:10px;">
+            </div>
+            <div>
+              <p style="font-size:13px;font-weight:800;color:var(--g-dark);margin-bottom:6px;">Zone 2</p>
+              <img src="zone2.png" alt="Zone 2" style="width:100%;border-radius:10px;">
+            </div>
+            <div>
+              <p style="font-size:13px;font-weight:800;color:var(--g-dark);margin-bottom:6px;">Zone 3</p>
+              <img src="zone3.png" alt="Zone 3" style="width:100%;border-radius:10px;">
+            </div>
           </div>
         </div>
       </div>
@@ -852,7 +863,7 @@
       <div class="feature-card">
         <div class="feature-icon"><i class="ti ti-clock" style="color:var(--p-med);"></i></div>
         <h3>Kills Mosquito Larvae-Before They Bite</h3>
-        <p>Most mosquito abatement techniques aim to kill adult mosquitos, which is less effective because it may kill them after they have already reproduced. Our traps kill the larvae, making the more effective.</p>
+        <p>Most mosquito abatement techniques aim to kill adult mosquitos, which is less effective because it may kill them after they have already reproduced. Our traps kill the larvae, making them much more effective.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="ti ti-check" style="color:var(--p-med);"></i></div>
