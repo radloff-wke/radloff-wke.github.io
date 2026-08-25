@@ -227,6 +227,26 @@
     }
     .faq-a.open { display: block; }
 
+    /* ── MONTH CHECKBOXES ── */
+    input[name="months"] {
+      appearance: none; -webkit-appearance: none;
+      width: 16px; height: 16px; flex-shrink: 0;
+      border: 2px solid var(--p-med); border-radius: 3px;
+      background: var(--p-pale); cursor: pointer;
+      position: relative; transition: background .15s;
+    }
+    input[name="months"]:checked {
+      background: var(--p-soft);
+    }
+    input[name="months"]:checked::after {
+      content: '';
+      position: absolute; left: 3px; top: 0px;
+      width: 5px; height: 9px;
+      border: 2px solid var(--p-med);
+      border-top: none; border-left: none;
+      transform: rotate(45deg);
+    }
+
     /* ── FORM ── */
     .form-group { margin-bottom: 18px; }
     .form-label { font-size: 13px; font-weight: 800; color: var(--g-dark); margin-bottom: 7px; display: block; }
@@ -403,6 +423,27 @@
         <div class="feature-icon"><i class="ti ti-map-pin" style="color:var(--p-med);"></i></div>
         <h3>DC Local</h3>
         <p>Proudly serving our own Washington DC neighborhood</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Season status -->
+  <section style="padding-top:36px;padding-bottom:36px;">
+    <h2 style="text-align:center;margin-bottom:6px;">Order Availability</h2>
+    <p style="text-align:center;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto;">Here's what's open for orders this season and next.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:700px;margin:0 auto;">
+      <div style="background:var(--g-mint);border:1.5px solid var(--g-pale);border-radius:16px;padding:28px;text-align:center;">
+        <p style="font-size:12px;font-weight:800;color:var(--g-reg);letter-spacing:.5px;margin-bottom:8px;">CURRENT SEASON</p>
+        <h3 style="margin-bottom:12px;">May – Oct 2026</h3>
+        <span style="display:inline-block;background:#fdecea;color:#c62828;font-size:13px;font-weight:800;padding:6px 18px;border-radius:20px;">Closed for orders</span>
+        <p style="font-size:13px;margin-top:14px;margin-bottom:0;">We're fully booked for this season — thank you!</p>
+      </div>
+      <div style="background:var(--p-pale);border:1.5px solid var(--p-soft);border-radius:16px;padding:28px;text-align:center;">
+        <p style="font-size:12px;font-weight:800;color:var(--p-med);letter-spacing:.5px;margin-bottom:8px;">NEXT SEASON</p>
+        <h3 style="margin-bottom:12px;">April – Oct 2027</h3>
+        <span style="display:inline-block;background:var(--p-soft);color:white;font-size:13px;font-weight:800;padding:6px 18px;border-radius:20px;">Now taking orders!</span>
+        <p style="font-size:13px;margin-top:14px;margin-bottom:16px;">Reserve your spot for next season now.</p>
+        <button class="btn btn-primary" style="font-size:13px;padding:9px 20px;" onclick="navigate('contact')">Reserve my spot</button>
       </div>
     </div>
   </section>
@@ -780,23 +821,23 @@
           <div class="form-group">
             <label class="form-label">Which months would you like service? (select all that apply)</label>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;">
-              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="May" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> May</label>
-              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="June" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> June</label>
-              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="July" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> July</label>
-              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="August" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> August</label>
-              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="September" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> September</label>
-              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="October" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> October</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="May" style="width:16px;height:16px;cursor:pointer;"> May</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="June" style="width:16px;height:16px;cursor:pointer;"> June</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="July" style="width:16px;height:16px;cursor:pointer;"> July</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="August" style="width:16px;height:16px;cursor:pointer;"> August</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="September" style="width:16px;height:16px;cursor:pointer;"> September</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="October" style="width:16px;height:16px;cursor:pointer;"> October</label>
             </div>
             <div style="display:flex;gap:10px;margin-top:10px;">
-              <button type="button" id="btn-full-season" onclick="selectMonthPreset('full')" style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;border:2px solid var(--g-med);background:white;color:var(--g-med);cursor:pointer;transition:all .15s;">Full season (May–Oct)</button>
-              <button type="button" id="btn-not-sure" onclick="selectMonthPreset('notsure')" style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;border:2px solid var(--g-light);background:white;color:var(--g-reg);cursor:pointer;transition:all .15s;">Not sure yet</button>
+              <button type="button" id="btn-full-season" onclick="selectMonthPreset('full')" style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;border:2px solid var(--g-med);background:var(--g-pale);color:var(--g-dark);cursor:pointer;transition:all .15s;">Full season (May–Oct)</button>
+              <button type="button" id="btn-not-sure" onclick="selectMonthPreset('notsure')" style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;border:2px solid var(--p-med);background:var(--p-pale);color:var(--p-med);cursor:pointer;transition:all .15s;">Not sure yet</button>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Any other notes?</label>
-            <textarea class="form-input" rows="3" placeholder="Questions, special requests, anything!"></textarea>
+            <label class="form-label" style="color:var(--p-med);">Any other notes?</label>
+            <textarea class="form-input" rows="3" placeholder="Questions, special requests, anything!" style="color:var(--p-med);background:var(--p-pale);border-color:var(--p-soft);"></textarea>
           </div>
-          <button class="btn btn-primary" type="submit" style="width:100%;padding:14px;font-size:16px;">Send Request!</button>
+          <button class="btn btn-primary" type="submit" style="width:100%;padding:14px;font-size:16px;color:var(--p-soft);">Send Request!</button>
         </form>
         <!--
           TO MAKE THIS FORM ACTUALLY SEND EMAILS:
@@ -954,37 +995,42 @@
     }
   }
 
+  function resetMonthPresetButtons() {
+    var btnFull = document.getElementById('btn-full-season');
+    var btnNotSure = document.getElementById('btn-not-sure');
+    var base = 'font-family:\'Outfit\',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;cursor:pointer;transition:all .15s;';
+    if (btnFull) { btnFull.dataset.active = '0'; btnFull.style.cssText = base + 'border:2px solid var(--g-med);background:var(--g-pale);color:var(--g-dark);'; }
+    if (btnNotSure) { btnNotSure.dataset.active = '0'; btnNotSure.style.cssText = base + 'border:2px solid var(--p-med);background:var(--p-pale);color:var(--p-med);'; }
+  }
+
+  document.addEventListener('change', function(e) {
+    if (e.target && e.target.name === 'months') { resetMonthPresetButtons(); }
+  });
+
   function selectMonthPreset(preset) {
     var checkboxes = document.querySelectorAll('input[name="months"]');
     var btnFull = document.getElementById('btn-full-season');
     var btnNotSure = document.getElementById('btn-not-sure');
-    var activeStyle = 'font-family:\'Outfit\',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;cursor:pointer;transition:all .15s;';
+    var base = 'font-family:\'Outfit\',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;cursor:pointer;transition:all .15s;';
 
     // If already active, toggle off
     if ((preset === 'full' && btnFull.dataset.active === '1') ||
         (preset === 'notsure' && btnNotSure.dataset.active === '1')) {
-      checkboxes.forEach(function(cb) { cb.disabled = false; cb.checked = false; });
-      btnFull.dataset.active = '0';
-      btnNotSure.dataset.active = '0';
-      btnFull.style.cssText = activeStyle + 'border:2px solid var(--g-med);background:white;color:var(--g-med);';
-      btnNotSure.style.cssText = activeStyle + 'border:2px solid var(--g-light);background:white;color:var(--g-reg);';
+      checkboxes.forEach(function(cb) { cb.checked = false; });
+      resetMonthPresetButtons();
       return;
     }
 
-    // Reset both buttons
-    btnFull.dataset.active = '0';
-    btnNotSure.dataset.active = '0';
-    btnFull.style.cssText = activeStyle + 'border:2px solid var(--g-med);background:white;color:var(--g-med);';
-    btnNotSure.style.cssText = activeStyle + 'border:2px solid var(--g-light);background:white;color:var(--g-reg);';
+    resetMonthPresetButtons();
 
     if (preset === 'full') {
-      checkboxes.forEach(function(cb) { cb.checked = true; cb.disabled = true; });
+      checkboxes.forEach(function(cb) { cb.checked = true; });
       btnFull.dataset.active = '1';
-      btnFull.style.cssText = activeStyle + 'border:2px solid var(--g-med);background:var(--g-med);color:white;';
+      btnFull.style.cssText = base + 'border:2px solid var(--g-med);background:var(--g-med);color:white;';
     } else {
-      checkboxes.forEach(function(cb) { cb.checked = false; cb.disabled = true; });
+      checkboxes.forEach(function(cb) { cb.checked = false; });
       btnNotSure.dataset.active = '1';
-      btnNotSure.style.cssText = activeStyle + 'border:2px solid var(--g-reg);background:var(--g-reg);color:white;';
+      btnNotSure.style.cssText = base + 'border:2px solid var(--p-med);background:var(--p-med);color:white;';
     }
   }
 
