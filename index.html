@@ -557,7 +557,7 @@
         <div class="price-badge">$15/month</div>
         <p class="price-note">Summer total May–October: $95</p>
         <h2>Monthly Trap Service</h2>
-        <p>If you already have traps or materials for a trap, we can come get them started and then come monthly to maintain your traps — adding water, hay, leaves, and a fresh mosquito dunk.</p>
+        <p>If you already have traps or materials for a trap, we can come get them started and then come monthly to maintain your traps — adding water, alfalfa pellets, leaves, and a fresh mosquito dunk.</p>
         <p>We'll let you know when we plan to service your traps each month and send an email so you know your traps are in good shape. In October, we'll clean out the traps for storage over fall and winter.</p>
         <button class="btn btn-primary" style="margin-top:10px;" onclick="navigate('contact')">Book this service</button>
       </div>
@@ -593,7 +593,7 @@
         <div class="price-badge">$25/bucket</div>
         <p class="price-note">One-time purchase — ships outside our service zone too!</p>
         <h2>DIY Mosquito Larva Trap Kit</h2>
-        <p>This kit contains everything you need to make and maintain your trap from May to October: a bucket, hydroponic lid, hay, mosquito dunks, and instructions — plus monthly email reminders to help you keep your trap effective all season long.</p>
+        <p>This kit contains everything you need to make and maintain your trap from May to October: a bucket, hydroponic lid, alfalfa pellets, mosquito dunks, and instructions — plus monthly email reminders to help you keep your trap effective all season long.</p>
         <p>This is still available if you are outside of our service zone!</p>
         <button class="btn btn-primary" style="margin-top:10px;" onclick="navigate('contact')">Order a kit</button>
       </div>
@@ -778,6 +778,21 @@
             </select>
           </div>
           <div class="form-group">
+            <label class="form-label">Which months would you like service? (select all that apply)</label>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;">
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="May" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> May</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="June" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> June</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="July" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> July</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="August" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> August</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="September" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> September</label>
+              <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="October" style="accent-color:var(--g-med);width:16px;height:16px;cursor:pointer;"> October</label>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:10px;">
+              <button type="button" id="btn-full-season" onclick="selectMonthPreset('full')" style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;border:2px solid var(--g-med);background:white;color:var(--g-med);cursor:pointer;transition:all .15s;">Full season (May–Oct)</button>
+              <button type="button" id="btn-not-sure" onclick="selectMonthPreset('notsure')" style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;border:2px solid var(--g-light);background:white;color:var(--g-reg);cursor:pointer;transition:all .15s;">Not sure yet</button>
+            </div>
+          </div>
+          <div class="form-group">
             <label class="form-label">Any other notes?</label>
             <textarea class="form-input" rows="3" placeholder="Questions, special requests, anything!"></textarea>
           </div>
@@ -804,9 +819,10 @@
           </p>
         </div>
         <div class="card" style="background:var(--g-mint);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
             <i class="ti ti-map-pin" style="font-size:22px;color:var(--g-med);"></i>
             <span style="font-weight:800;font-size:15px;">Service area</span>
+            <a href="https://www.google.com/maps/d/u/1/viewer?mid=122s3pzRy0XR9UuUqIhshzLBIZj0e24k&ll=38.942182811763146%2C-77.0714228673636&z=15" target="_blank" rel="noopener" style="font-size:12px;font-weight:800;color:var(--g-med);border:1.5px solid var(--g-med);border-radius:6px;padding:3px 10px;text-decoration:none;white-space:nowrap;">View full map ↗</a>
           </div>
           <p style="font-size:13px;">We serve select neighborhoods in Washington DC on foot or by bike. Monthly service requires you to be in our zone — but the DIY Kit ships anywhere!</p>
           <div style="display:flex;flex-direction:column;gap:14px;margin-top:10px;">
@@ -935,6 +951,40 @@
     if (!isOpen) {
       el.classList.add('open');
       el.nextElementSibling.classList.add('open');
+    }
+  }
+
+  function selectMonthPreset(preset) {
+    var checkboxes = document.querySelectorAll('input[name="months"]');
+    var btnFull = document.getElementById('btn-full-season');
+    var btnNotSure = document.getElementById('btn-not-sure');
+    var activeStyle = 'font-family:\'Outfit\',sans-serif;font-size:13px;font-weight:800;padding:7px 16px;border-radius:8px;cursor:pointer;transition:all .15s;';
+
+    // If already active, toggle off
+    if ((preset === 'full' && btnFull.dataset.active === '1') ||
+        (preset === 'notsure' && btnNotSure.dataset.active === '1')) {
+      checkboxes.forEach(function(cb) { cb.disabled = false; cb.checked = false; });
+      btnFull.dataset.active = '0';
+      btnNotSure.dataset.active = '0';
+      btnFull.style.cssText = activeStyle + 'border:2px solid var(--g-med);background:white;color:var(--g-med);';
+      btnNotSure.style.cssText = activeStyle + 'border:2px solid var(--g-light);background:white;color:var(--g-reg);';
+      return;
+    }
+
+    // Reset both buttons
+    btnFull.dataset.active = '0';
+    btnNotSure.dataset.active = '0';
+    btnFull.style.cssText = activeStyle + 'border:2px solid var(--g-med);background:white;color:var(--g-med);';
+    btnNotSure.style.cssText = activeStyle + 'border:2px solid var(--g-light);background:white;color:var(--g-reg);';
+
+    if (preset === 'full') {
+      checkboxes.forEach(function(cb) { cb.checked = true; cb.disabled = true; });
+      btnFull.dataset.active = '1';
+      btnFull.style.cssText = activeStyle + 'border:2px solid var(--g-med);background:var(--g-med);color:white;';
+    } else {
+      checkboxes.forEach(function(cb) { cb.checked = false; cb.disabled = true; });
+      btnNotSure.dataset.active = '1';
+      btnNotSure.style.cssText = activeStyle + 'border:2px solid var(--g-reg);background:var(--g-reg);color:white;';
     }
   }
 
