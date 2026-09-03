@@ -22,6 +22,7 @@
       --p-soft:   #ffb7c5;
       --p-pale:   #fdf0f4;
       --p-med:    #e8829a;
+      --p-dark:   #a33d5a;
     }
 
     body {
@@ -685,7 +686,7 @@
   <!-- Zone note -->
   <section style="padding-top:0;">
     <div class="zone-note">
-      <i class="ti ti-map-pin" style="font-size:36px;color:var(--g-med);margin-bottom:14px;display:block;"></i>
+      <i class="ti ti-map-pin" style="font-size:36px;color:var(--p-med);margin-bottom:14px;display:block;"></i>
       <h2 style="margin-bottom:10px;">A note about service zones</h2>
       <p>Monthly service is only available if you live in one of our service zones. We aim to be eco-friendly by not using cars, and since this is a kid-run business, we can only travel so far!</p>
       <p>But don't worry — our DIY Kit is available everywhere. Not sure if you're in our zone? Just ask!</p>
@@ -710,6 +711,14 @@
   <section style="padding-top:8px;">
     <div class="faq-list">
 
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>What is BTI, and how does it work?</span>
+          <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">BTI (Bacillus thuringiensis israelensis) is a natural bacterium that kills mosquito larvae.</div>
+      </div>
+      
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           <span>I am out of the service zone but I would still like some buckets. Do you have any options for me?</span>
@@ -747,7 +756,7 @@
           <span>My dog likes to get into things. Will this be a problem with the buckets?</span>
           <i class="ti ti-chevron-down"></i>
         </div>
-        <div class="faq-a">The lids snap on tight to the buckets, and the BTI dunk that we use in the traps will not harm your dog if he or she does manage to get into one, so your pup will be safe around our traps. In fact, dogs can contract heartworm disease from mosquito bites, so having the traps will protect your furry friend. </div>
+        <div class="faq-a">The lids snap on tight to the buckets, and the BTI dunk that we use in the traps will not harm your dog if he or she does manage to get into one, so your pup will be safe around our traps. In fact, dogs can contract heartworm disease from mosquito bites, so having the traps around will protect your furry friend (and your neighbors', as well). </div>
       </div>
 
     </div>
@@ -781,23 +790,36 @@
       <div>
         <span class="tag">Order Now!</span>
         <h1 style="margin-bottom:8px;">Get your yard mosquito-free!</h1>
-        <p style="margin-bottom:30px;">Fill out the form and we'll be in touch soon!</p>
+        <p style="margin-bottom:16px;">Fill out the form and we'll be in touch soon!</p>
+        <p style="font-size:13px;font-weight:800;color:var(--g-dark);margin-bottom:10px;">Season status</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;">
+          <div style="background:var(--g-mint);border:1.5px solid var(--g-pale);border-radius:12px;padding:18px;text-align:center;">
+            <p style="font-size:11px;font-weight:800;color:var(--g-reg);letter-spacing:.5px;margin-bottom:6px;">THIS SEASON</p>
+            <p style="font-size:14px;font-weight:800;color:var(--g-dark);margin-bottom:10px;">May–Oct 2026</p>
+            <span style="display:inline-block;background:#fdecea;color:#c62828;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;">Closed for orders</span>
+          </div>
+          <div style="background:var(--p-pale);border:1.5px solid var(--p-soft);border-radius:12px;padding:18px;text-align:center;">
+            <p style="font-size:11px;font-weight:800;color:var(--p-med);letter-spacing:.5px;margin-bottom:6px;">NEXT SEASON</p>
+            <p style="font-size:14px;font-weight:800;color:var(--p-dark);margin-bottom:10px;">April–Oct 2027</p>
+            <span style="display:inline-block;background:var(--p-soft);color:white;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;">Now taking orders!</span>
+          </div>
+        </div>
         <form onsubmit="handleSubmit(event)">
           <div class="form-group">
             <label class="form-label">Your name</label>
             <input class="form-input" type="text" placeholder="Full name" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Email address</label>
-            <input class="form-input" type="email" placeholder="your@email.com" required>
+            <label class="form-label" style="color:var(--p-dark);">Email address</label>
+            <input class="form-input" type="email" placeholder="your@email.com" required >
           </div>
           <div class="form-group">
             <label class="form-label">Your address</label>
             <input class="form-input" type="text" placeholder="Street address + neighborhood" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Which service are you interested in?</label>
-            <select class="form-input" required>
+            <label class="form-label" style="color:var(--p-dark);">Which service are you interested in?</label>
+            <select class="form-input" required >
               <option value="" disabled selected>Choose one...</option>
               <option>Monthly Trap Service (If you already have traps or materials) ($5 setup + $15/month)</option>
               <option>New Traps + Monthly Service ($15 materials + $15/month)</option>
@@ -819,7 +841,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Which months would you like service? (select all that apply)</label>
+            <label class="form-label">Which months would you like service/materials for? (select all that apply)</label>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;">
               <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="May" style="width:16px;height:16px;cursor:pointer;"> May</label>
               <label style="display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--g-reg);cursor:pointer;"><input type="checkbox" name="months" value="June" style="width:16px;height:16px;cursor:pointer;"> June</label>
@@ -834,8 +856,8 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" style="color:var(--p-med);">Any other notes?</label>
-            <textarea class="form-input" rows="3" placeholder="Questions, special requests, anything!" style="color:var(--p-med);background:var(--p-pale);border-color:var(--p-soft);"></textarea>
+            <label class="form-label" style="color:var(--p-dark);">Any other notes?</label>
+            <textarea class="form-input" rows="3" placeholder="Questions, special requests, anything!" ></textarea>
           </div>
           <button class="btn btn-primary" type="submit" style="width:100%;padding:14px;font-size:16px;color:var(--p-soft);">Send Request!</button>
         </form>
@@ -1036,6 +1058,12 @@
 
   function handleSubmit(e) {
     e.preventDefault();
+    var anyMonth = document.querySelector('input[name="months"]:checked');
+    var notSureActive = document.getElementById('btn-not-sure').dataset.active === '1';
+    if (!anyMonth && !notSureActive) {
+      alert('Please select at least one month (or "Not sure yet") before submitting.');
+      return;
+    }
     alert('Thanks for reaching out! We\'ll get back to you soon. 🌿\n\n(To make this form send real emails, see the comment in the HTML code.)');
   }
 </script>
